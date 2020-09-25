@@ -1,2 +1,53 @@
-<!--pages/category/index.wxml-->
-<text>pages/category/index.wxml</text>
+<view class="page">
+    <SearchInput></SearchInput>
+    <view class="category">
+        <scroll-view class="menu" scroll-y>
+
+            <!-- 左边一级分类 -->
+            <!-- 渲染简单数组的时候， key绑定 *this -->
+            <view 
+            wx:for="{{leftMenuList}}" 
+            wx:key="*this" 
+            class="menu-item {{index===currentIndex?'active':''}}"
+            bindtap="onMenuClick"
+            data-index="{{index}}"
+            >
+                {{item}}
+            </view>
+        </scroll-view>
+           
+        <scroll-view class="content" scroll-y scroll-top="{{scrollTop}}">
+            <!-- 二级分类 -->
+            <view class="goods-group"
+            wx:for="{{rightContent}}"
+            wx:key="*this"
+            wx:for-item="item1"
+            wx:for-index="index1"
+            >
+                <view class="goods-title">
+                    <text class="delimiter"> / </text>
+                    <text class="title-text">{{item1.cat_name}}</text>
+                    <text class="delimiter"> / </text>
+                </view>
+                <view class="goods-list">
+                    <view 
+                    class="goods-item"
+                    wx:for="{{item1.children}}"
+                    wx:for-item="item2"
+                    wx:for-index="index2"
+                    wx:key="*this"
+                    >
+                        <navigator url="/pages/goods_list/index?cid={{item2.cat_id}}">
+                            <image src="{{item2.cat_icon}}" mode="widthFix"/>
+                            <text class="goods-item-name">
+                                {{item2.cat_name}}
+                            </text>
+                        </navigator>
+                    
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+
+    </view>
+</view>

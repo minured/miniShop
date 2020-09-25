@@ -1,2 +1,33 @@
-<!--pages/goods_detail/index.wxml-->
-<text>pages/goods_detail/index.wxml</text>
+<view class="detail-swiper">
+    <!-- 轮播 -->
+    {{goodsDeatil.pics}}
+    <swiper indicator-dots circular autoplay>
+        <swiper-item class="" wx:for="{{goodsDetail.pics}}" wx:key="pics_id">
+            <image mode="widthFix" src="{{item.pics_mid}}" bindtap="onSwiperImageTap" data-index="{{index}}" />
+        </swiper-item>
+    </swiper>
+    <!-- 价格名称 -->
+    <view class="goods-price">￥{{goodsDetail.goods_price}}</view>
+    <view class="goods-name-row">
+        <view class="goods-name">{{goodsDetail.goods_name}}</view>
+        <view class="goods-collect">
+            <text class="iconfont icon-collect"></text>
+            <view>收藏</view>
+        </view>
+    </view>
+    <!-- 商品详情 -->
+    <view class="goods-info">
+        <view class="goods-info-title">图文详情</view>
+        <view class="goods-info-content">
+            <rich-text nodes="{{goodsDetail.goods_introduce}}"></rich-text>
+        </view>
+    </view>
+    <!-- 底部按钮 -->
+    <view class="bottom-btn-wrap">
+        <view class="bottom-btn norman-btn">联系客服</view>
+        <view class="bottom-btn normal-btn" >分享</view>
+        <view class="bottom-btn normal-btn">购物车</view>
+        <view class="bottom-btn buy-btn">加入购物车</view>
+        <view class="bottom-btn buy-btn">立即购买</view>
+    </view>
+</view>

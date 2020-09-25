@@ -1,1 +1,52 @@
-/* pages/category/index.wxss */
+page {
+  height: 100%;
+}
+.category {
+  height: calc(100vh - 90rpx);
+  display: flex;
+}
+.category .menu {
+  flex: 2;
+}
+.category .menu .menu-item {
+  height: 80rpx;
+  text-align: center;
+  display: flex;
+  margin: 20rpx 10rpx 20rpx 0rpx;
+  font-size: 30rpx;
+  justify-content: center;
+  align-items: center;
+}
+.category .menu .active {
+  color: var(--themeColor);
+  border-left: 5rpx solid currentColor;
+}
+.category .content {
+  flex: 5;
+}
+.category .content .goods-group .goods-title {
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+.category .content .goods-group .goods-title .delimiter {
+  color: #999;
+  padding: 0 10rpx;
+}
+.category .content .goods-group .goods-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10rpx;
+}
+.category .content .goods-group .goods-list .goods-item {
+  width: 33.33%;
+  margin-bottom: 40rpx;
+}
+.category .content .goods-group .goods-list .goods-item navigator {
+  text-align: center;
+}
+.category .content .goods-group .goods-list .goods-item navigator image {
+  width: 60%;
+}

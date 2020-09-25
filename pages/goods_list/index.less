@@ -1,0 +1,37 @@
+
+.first-tab {
+    .goods-item {
+        display: flex;
+        border-bottom: 0.5px solid #eee;
+        .left-img-wrap {
+            flex: 2;
+            display: flex;            
+            justify-content: center;
+            align-items: center;
+            image {
+                width: 70%;
+            }
+        }
+        .right-detail-wrap {
+            padding-right: 20rpx;
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            .goods-name {
+                // 文字过长显示省略号
+                display: -webkit-box;
+                overflow: hidden;
+                -webkit-box-orient: vertical;
+                // 第二行开始省略号
+                -webkit-line-clamp: 2;
+
+
+            }
+            .goods-price {
+                color: var(--themeColor);
+                font-size: 32rpx;
+            }
+        }
+    }
+}

@@ -1,1 +1,65 @@
-/* pages/goods_detail/index.wxss */
+.detail-swiper swiper {
+  height: 60vw;
+  text-align: center;
+}
+.detail-swiper swiper swiper-item image {
+  width: 60%;
+  border: 1px solid red;
+}
+.goods-price {
+  color: var(--themeColor);
+  font-size: 32rpx;
+  font-weight: 600;
+  padding: 15rpx;
+}
+.goods-name-row {
+  border-top: 1rpx solid #dedede;
+  border-bottom: 1rpx solid #dedede;
+  display: flex;
+  padding: 20rpx 0;
+}
+.goods-name-row .goods-name {
+  padding: 0 15rpx;
+  flex: 5;
+  font-size: 30rpx;
+  border-right: 0.5px solid #ddd;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+.goods-name-row .goods-collect {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.goods-info .goods-info-title {
+  padding: 15rpx 20rpx;
+  border-top: 8rpx solid #ddd;
+  border-bottom: 8rpx solid #ddd;
+  color: var(--themeColor);
+  font-size: 32rpx;
+}
+.bottom-btn-wrap {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  background-color: white;
+  height: 90rpx;
+  width: 100%;
+}
+.bottom-btn-wrap .bottom-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #eee;
+}
+.bottom-btn-wrap .normal-btn {
+  flex: 2;
+}
+.bottom-btn-wrap .buy-btn {
+  flex: 3;
+}

@@ -5,33 +5,75 @@ import { request } from "../../request/index.js"
 Page({
     data: {
         swiperList: [],
-        navList: []
+        navList: [],
+        floorList: []
     },
     
-    async getSwiperList() {
-        let res = await request({url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata'})
-        this.setData({
-            swiperList: res.data.message
+    // 数据请求
+    dataMap: [
+        {
+            name: "swiperList",
+            url: "/home/swiperdata"
+        },
+        {
+            name: "navList",
+            url: "/home/catitems"            
+        },
+        {
+            name: "floorList",
+            url: "/home/floordata"
+        }
+    ],
+    // 修正接口返回url
+    formatSwiperUrl(e){
+        let {url} = e.currentTarget.dataset
+        let left = url.spilt("?")[0].split("/").pop()
+        let right = url.split("?")[1]
+        url = left + right
+
+        return url
+    },
+
+    getIndexData() {
+        this.dataMap.forEach(item => {
+            request({url: item.url}).then(res => {
+                this.setData({
+                    [item.name]: res.data.message
+                })
+            })
         })
     },
-    async getCatItem() {
-        let res = await　request({url: "https://api-hmugo-web.itheima.net/api/public/v1/home/catitems"})
-        this.setData({
-            navList: res.data.message
-        })
-        console.log(this.data.navList);
-    },
+
+
+    // async getSwiperList() {
+    //     let res = await request({url: 'https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata'})
+    //     this.setData({
+    //         swiperList: res.data.message
+    //     })
+    // },
+    // async getNavList() {
+    //     let res = await　request({url: "https://api-hmugo-web.itheima.net/api/public/v1/home/catitems"})
+    //     this.setData({
+    //         navList: res.data.message
+    //     })
+    // },
+    // async getFloorList() {
+    //     let res = await request({url: "https://api-hmugo-web.itheima.net/api/public/v1/home/floordata"})
+    //     this.setData({
+    //         floorList: res.data.message
+    //     })
+    // },
 
     onLoad() {
-        this.getSwiperList()
-        this.getCatItem()
-        
+        // this.getSwiperList()
+        // this.getNavList()
+        // this.getFloorList()
+        this.getIndexData()
+
     },
-    //可以在次发送请求
+    //可以在此发送请求
     // onLoad: function(options){
-
-
-    //     // 使用promise发送处理请求
+    //     // 使用promise处理请求
     //     // request({
     //     //     url: "https://api-hmugo-web.itheima.net/api/public/v1/home/swiperdata"
     //     // }).then(res => {
@@ -56,6 +98,7 @@ Page({
     //     //     },
     //     // });
     // },
+
     onReady: function(){
         
     },

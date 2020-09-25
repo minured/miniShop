@@ -2,22 +2,60 @@
     color: #ff2d4a;
 }
 
+// 轮播图
 .index-swiper {
     image {
         width: 100%;
     }
 
 }
+
+// 导航栏
 .nav {
-    border: 1px solid black;
     display: flex;
     .nav-item {
-        border: 1px solid red;
         flex: 1;
+        padding: 30rpx;
         image {
-            border: 1px solid green;
             width: 100%;
-            
+        
+        }
+    }
+}
+
+// 商品展示
+.floor {
+    padding: 0 10rpx;
+    .floor-item {
+        .item-title {
+            padding: 10rpx 0;
+            image {
+                width: 100%;
+            }
+        }
+        .item-goods {
+            overflow: hidden;
+            navigator {
+                float: left;
+                width: 33.33%;
+
+                // 只需设置后四个图片的高
+                // 后买四张图为第一张图的一半
+                // 所以先求出第一张图的高度
+                // firstHeight = 33.33vw / (232 / 386)
+                &:nth-last-child(-n+4) {
+                    height: 33.33vw / (232/386) / 2;
+                    border-left: 10rpx solid white;
+                }
+                &:nth-child(2),
+                &:nth-child(3) {
+                    border-bottom: 10rpx solid white;
+                }
+                image {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
     }
 }
