@@ -1,3 +1,6 @@
+page {
+  padding-bottom: 90rpx;
+}
 // 地址
 .address {
   .address-btn {
@@ -109,27 +112,37 @@ view.cart {
 
 // 底部工具栏
 view.bottom-tools {
-    view.allcheck-wrap {
-      checkbox-group {
-        checkbox {
-            
-        }
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 90rpx;
+  border-top: 0.5px solid #aaa;
+  width: 100%;
+  display: flex;
+  background-color: white;
+  view.allcheck-wrap {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    checkbox-group {
+      checkbox {
       }
-    }
-  
-    view.total-price-wrap {
-      view.total-price {
-        text.total-price-text {
-  
-        }
-      }
-  
-      view {
-  
-      }
-    }
-  
-    view.order-pay-wrap {
-  
     }
   }
+
+  view.total-price-wrap {
+    flex: 4;
+    view.total-price {
+      text.total-price-text {
+      }
+    }
+
+    view {
+    }
+  }
+
+  view.order-pay-wrap {
+    flex: 3;
+  }
+}

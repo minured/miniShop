@@ -1,3 +1,6 @@
+page {
+  padding-bottom: 90rpx;
+}
 .address .address-btn {
   padding: 20rpx;
 }
@@ -82,4 +85,26 @@ view.cart view.cart-content view.goods-item view.goods-detail view.goods-price-w
   display: flex;
   justify-content: center;
   align-items: center;
+}
+view.bottom-tools {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 90rpx;
+  border-top: 0.5px solid #aaa;
+  width: 100%;
+  display: flex;
+  background-color: white;
+}
+view.bottom-tools view.allcheck-wrap {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+view.bottom-tools view.total-price-wrap {
+  flex: 4;
+}
+view.bottom-tools view.order-pay-wrap {
+  flex: 3;
 }

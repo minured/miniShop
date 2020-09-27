@@ -50,7 +50,7 @@
 <view class="bottom-tools">
     <view class="allcheck-wrap">
         <checkbox-group bindchange="">
-            <checkbox  />
+            <checkbox>全选</checkbox>
         </checkbox-group>
         
     </view>
