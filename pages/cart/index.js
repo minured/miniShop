@@ -6,6 +6,7 @@ Page({
    */
   data: {
     hasAddress: false,
+    address: null
   },
 
   async onAddAddress() {
@@ -25,60 +26,24 @@ Page({
       }
       const address = await chooseAddress();
       console.log(address);
+      address.all = address.provinceName+address.cityName+address.countyName+address.detailInfo
       wx.setStorageSync("address", address);
+      this.setData({
+        address: address
+      });
     } catch (error) {
-      console.error(error)
+      console.error(error);
     }
-
-    // wx.getSetting({
-    //   // TODO 暂时没法清楚授权数据
-
-    //   success: (result) => {
-    //     console.log(result);
-    //     let scopeAddress = result.authSetting["scope.address"];
-    //     console.log(scopeAddress);
-
-    //     // scopeAddress 可能为 undefined
-    //     if (scopeAddress === false) {
-    //       // 如果是拒绝过 先打开授权设置
-    //       wx.wx.openSetting({
-    //         success: (result)=>{
-    //           console.log(result);
-
-    //           // 再发起授权请求
-    //           wx.chooseAddress({
-    //             success: (result)=>{
-    //               console.log(result);
-    //             },
-    //           });
-    //         },
-    //       });
-    //     } else {
-    //       wx.chooseAddress({
-    //         success: (result)=>{
-    //           console.log(result)
-    //         },
-
-    //       });
-    //     }
-    //   },
-    // });
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {},
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {},
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {},
+  onShow: function () {
+    let localAddress = wx.getStorageSync("address");
+    if (localAddress) {
+      this.setData({
+        address: localAddress
+      });
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

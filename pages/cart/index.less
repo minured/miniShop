@@ -1,9 +1,135 @@
+// 地址
 .address {
-  border: 1px solid red;
   .address-btn {
     padding: 20rpx;
     button {
       width: 60%;
     }
   }
+  .address-wrap {
+    padding: 20rpx 10rpx;
+    display: flex;
+    justify-content: space-between;
+    .user-info {
+      .user-name {
+        font-size: 36rpx;
+      }
+      .user-address {
+      }
+    }
+    .user-phone {
+    }
+  }
 }
+
+// 购物车
+view.cart {
+  view.title {
+    padding: 20rpx;
+    font-size: 36rpx;
+    color: var(--themeColor);
+    border-top: 1rpx solid var(--themeColor);
+    border-bottom: 1rpx solid var(--themeColor);
+  }
+
+  view.cart-content {
+    border: 1px solid red;
+    view.goods-item {
+      padding: 10rpx;
+      border-bottom: 1px solid #ccc;
+      display: flex;
+      view.goods-checkbox {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        checkbox-group {
+          checkbox {
+          }
+        }
+      }
+
+      navigator.goods-img {
+        flex: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        image {
+          width: 80%;
+        }
+      }
+
+      view.goods-detail {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: column;
+        flex: 5;
+        view.goods-name {
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          color: #666;
+        }
+
+        view.goods-price-wrap {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          view.goods-price {
+            color: var(--themeColor);
+            font-size: 34rpx;
+          }
+
+          view.goods-num-tool {
+            display: flex;
+            view.num-edit {
+              width: 55rpx;
+              height: 55rpx;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              border: 1px solid #ddd;
+            }
+
+            view.num-text {
+              width: 55rpx;
+              height: 55rpx;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// 底部工具栏
+view.bottom-tools {
+    view.allcheck-wrap {
+      checkbox-group {
+        checkbox {
+            
+        }
+      }
+    }
+  
+    view.total-price-wrap {
+      view.total-price {
+        text.total-price-text {
+  
+        }
+      }
+  
+      view {
+  
+      }
+    }
+  
+    view.order-pay-wrap {
+  
+    }
+  }

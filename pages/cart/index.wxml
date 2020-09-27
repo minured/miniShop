@@ -1,5 +1,66 @@
-<view class="address" wx:if="{{!hasAddress}}">
-    <view class="address-btn">
+<view class="address">
+    <view class="address-btn" wx:if="{{!address}}">
         <button type="primary" plain bindtap="onAddAddress">添加收货地址</button>
+    </view>
+    <view wx:else class="address-wrap">
+        <view class="user-info">
+            <view class="user-name">{{address.userName}}</view>
+            <view class="user-address">
+                {{address.all}}
+            </view>
+        </view>
+        <view class="user-phone">{{address.telNumber}}</view>
+    </view>
+</view>
+
+<view class="cart">
+    <view class="title">购物车</view>
+    <view class="cart-content">
+        <view 
+        class="goods-item"
+        
+        >
+            <view class="goods-checkbox">
+                <checkbox-group bindchange="">
+                    <checkbox />
+                </checkbox-group>
+            </view>
+            <navigator class="goods-img">
+                <image 
+                mode="widthFix" 
+                src="http://image1.suning.cn/uimg/b2c/newcatentries/0070134290-000000000149003877_1_800x800.jpg"
+                />
+            </navigator>
+            <view class="goods-detail">
+                <view class="goods-name">spike 经典武士大马士革直刀(微型) 户外野营直刀 收藏礼品刀 饰品刀具</view>
+                <view class="goods-price-wrap">
+                    <view class="goods-price">￥1999</view>
+                    <view class="goods-num-tool">
+                        <view class="num-edit">+</view>
+                        <view class="num-text">10</view>
+                        <view class="num-edit">-</view>
+                    </view>
+                </view>
+
+            </view>
+        </view>
+    </view>  
+</view>
+
+<view class="bottom-tools">
+    <view class="allcheck-wrap">
+        <checkbox-group bindchange="">
+            <checkbox  />
+        </checkbox-group>
+        
+    </view>
+    <view class="total-price-wrap">
+        <view class="total-price">
+            合计： <text class="total-price-text">￥1999</text>
+        </view>
+        <view >包含运费</view>
+    </view>
+    <view class="order-pay-wrap">
+        结算(2)
     </view>
 </view>
