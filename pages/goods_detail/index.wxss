@@ -1,3 +1,6 @@
+page {
+  padding-bottom: 90rpx;
+}
 .detail-swiper swiper {
   height: 60vw;
   text-align: center;
@@ -37,12 +40,13 @@
 }
 .goods-info .goods-info-title {
   padding: 15rpx 20rpx;
-  border-top: 8rpx solid #ddd;
+  border-top: 7rpx solid #ddd;
   border-bottom: 8rpx solid #ddd;
   color: var(--themeColor);
   font-size: 32rpx;
 }
 .bottom-btn-wrap {
+  border-top: 0.5px solid #aaa;
   position: fixed;
   left: 0;
   bottom: 0;
@@ -51,15 +55,34 @@
   height: 90rpx;
   width: 100%;
 }
-.bottom-btn-wrap .bottom-btn {
+.bottom-btn-wrap .btn-item {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  border: 1px solid #eee;
+  position: relative;
+}
+.bottom-btn-wrap .btn-item button {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
 }
 .bottom-btn-wrap .normal-btn {
   flex: 2;
+  font-size: 24rpx;
 }
-.bottom-btn-wrap .buy-btn {
+.bottom-btn-wrap .btn-cart {
   flex: 3;
+  background-color: #ffa500;
+  color: white;
+  font-weight: 600;
+}
+.bottom-btn-wrap .btn-buy {
+  flex: 3;
+  color: white;
+  background-color: var(--themeColor);
+  font-weight: 600;
 }

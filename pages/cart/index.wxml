@@ -1,2 +1,5 @@
-<!--pages/cart/index.wxml-->
-<text>pages/cart/index.wxml</text>
+<view class="address" wx:if="{{!hasAddress}}">
+    <view class="address-btn">
+        <button type="primary" plain bindtap="onAddAddress">添加收货地址</button>
+    </view>
+</view>
