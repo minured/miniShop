@@ -19,8 +19,8 @@ view.cart view.title {
   padding: 20rpx;
   font-size: 36rpx;
   color: var(--themeColor);
-  border-top: 1rpx solid var(--themeColor);
-  border-bottom: 1rpx solid var(--themeColor);
+  border-top: 1px solid var(--themeColor);
+  border-bottom: 1px solid var(--themeColor);
 }
 view.cart view.cart-content view.goods-item {
   padding: 10rpx;
@@ -120,4 +120,16 @@ view.bottom-tools view.order-pay-wrap {
   justify-content: center;
   align-items: center;
   flex: 2;
+}
+.cart-empty-tips {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40rpx;
+  font-size: 36rpx;
+}
+.cart-empty-tips image {
+  margin-top: 20rpx;
+  width: 60%;
 }

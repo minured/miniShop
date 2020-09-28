@@ -13,33 +13,45 @@
 <view class="cart">
     <view class="title">购物车</view>
     <view class="cart-content">
-        <view class="goods-item" wx:for="{{cart}}" wx:key="goods_name">
-            <view class="goods-checkbox">
-                <checkbox-group bindchange="onGoodsCheckedChange" data-id="{{item.goodsDetail.goods_id}}" data-index="{{index}}" >
-                    <checkbox checked="{{item.checked}}"/>
-                </checkbox-group>
-            </view>
-            <navigator class="goods-img">
-                <image mode="widthFix" src="{{item.goodsDetail.pics[0].pics_sma}}" />
-            </navigator>
-            <view class="goods-detail">
-                <view class="goods-name">{{item.goodsDetail.goods_name}}</view>
-                <view class="goods-price-wrap">
-                    <view class="goods-price">{{item.goodsDetail.goods_price}}</view>
-                    <view class="goods-num-tool">
-                        <view class="num-edit" bindtap="addNum" data-id="{{index}}">+</view>
-                        <view class="num-text">{{item.num}}</view>
-                        <view class="num-edit" bindtap="reduceNum" data-id="{{index}}">-</view>
+        <block wx:if="{{cart.length !==0}}">
+            <view class="goods-item" wx:for="{{cart}}" wx:key="goods_name">
+                <view class="goods-checkbox">
+                    <checkbox-group bindchange="onGoodsCheckedChange" data-id="{{item.goodsDetail.goods_id}}" data-index="{{index}}">
+                        <checkbox checked="{{item.checked}}" />
+                    </checkbox-group>
+                </view>
+                <navigator class="goods-img">
+                    <image mode="widthFix" src="{{item.goodsDetail.pics[0].pics_sma || 'http://image3.suning.cn/uimg/b2c/newcatentries/0070082592-000000000602606780_2_400x400.jpg'}}" />
+                </navigator>
+                <view class="goods-detail">
+                    <view class="goods-name">{{item.goodsDetail.goods_name}}</view>
+                    <view class="goods-price-wrap">
+                        <view class="goods-price">{{item.goodsDetail.goods_price}}</view>
+                        <view class="goods-num-tool">
+                            <view class="num-edit" bindtap="editNum" data-id="{{item.goodsDetail.goods_id}}" data-step="{{1}}">
+                                +
+                            </view>
+                            <view class="num-text">{{item.num}}</view>
+                            <view class="num-edit" bindtap="editNum" data-id="{{item.goodsDetail.goods_id}}" data-step="{{-1}}">
+                                -
+                            </view>
+                        </view>
                     </view>
                 </view>
             </view>
-        </view>
+        </block>
+        <block wx:else>
+            <view class="cart-empty-tips">
+                购物车空空如也
+                <image src="http://www.s3tu.com/images/2020/09/28/cart-empty60924.jpg" />
+            </view>
+        </block>
     </view>
 </view>
 <view class="bottom-tools">
     <view class="allcheck-wrap">
         <checkbox-group bindchange="" value="{{allChecked}}" bindchange="onAllCheckedChange">
-            <checkbox checked="{{allChecked}}" >全选</checkbox>
+            <checkbox checked="{{allChecked}}">全选</checkbox>
         </checkbox-group>
     </view>
     <view class="total-price-wrap">

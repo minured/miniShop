@@ -1,4 +1,9 @@
-import { getSetting, openSetting, chooseAddress } from "../../utils/asyncWX.js";
+import {
+  getSetting,
+  openSetting,
+  chooseAddress,
+  showModal,
+} from "../../utils/asyncWX.js";
 Page({
   data: {
     hasAddress: false,
@@ -6,14 +11,28 @@ Page({
     cart: [],
     allChecked: false,
     totalPrice: 0,
-    totalNum: 0
+    totalNum: 0,
   },
-  addNum(e) {
-    console.log(e.currentTarget.dataset);
+  async editNum(e) {
+    let { id, step } = e.currentTarget.dataset;
+    console.log(id, step);
+    let { cart } = this.data;
+    let index = cart.findIndex((item) => item.goodsDetail.goods_id === id);
 
-  },
-  reduceNum(e) {
-    console.log(e.currentTarget.dataset);
+    // 是否要删除
+    if (cart[index].num === 1 && step === -1) {
+      const res = await showModal({ title: "是否要删除？" });
+      if (res.confirm) {
+        cart.splice(index, 1);
+        this.updateCartStatus(cart);
+      }
+    } else {
+      cart[index].num += step;
+      this.setData({
+        cart,
+      });
+      this.updateCartStatus(cart);
+    }
   },
 
   async onAddAddress() {
@@ -70,6 +89,7 @@ Page({
       cart,
       allChecked,
     });
+    wx.setStorageSync("cart", cart);
   },
   onGoodsCheckedChange(e) {
     // TODO  取商品 id 还是 index.
@@ -82,20 +102,16 @@ Page({
     cart[index].checked = !cart[index].checked;
 
     this.updateCartStatus(cart);
-    wx.setStorageSync("cart", cart);
   },
   onAllCheckedChange() {
-    let { allChecked } = this.data;
-    let { cart } = this.data;
+    let { allChecked, cart } = this.data;
     allChecked = !allChecked;
-    cart.forEach((item) => {
-      item.checked = allChecked;
-    });
+    cart.forEach((item) => (item.checked = allChecked));
     this.setData({
       allChecked,
-      cart
+      cart,
     });
-    wx.setStorageSync("cart", cart);
+    this.updateCartStatus(cart);
   },
 
   onShow() {
