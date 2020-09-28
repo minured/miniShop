@@ -12,9 +12,10 @@ Page({
 
   addToCart(e) {
     let { id } = e.currentTarget.dataset;
+    console.log(id);
     // 这样加一个 默认值， 就省去了 判断是否有购物车的一步，没有购物车则默认空数组
     let localCart = wx.getStorageSync("cart") || [];
-
+    console.log(localCart);
     // localCart.forEach((item) => {
     //   if (item.goodsDetail.goods_id === id) {
     //     // 存在该商品 数量+1, 并保存
@@ -35,6 +36,7 @@ Page({
       console.log("商品未存在");
       localCart.push({
         num: 1,
+        checked: true,
         goodsDetail: this.data.goodsDetail,
       });
     }
@@ -85,7 +87,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options);
     this.queryParams.goods_id = options.goods_id;
     this.getGoodsDetail();
   },

@@ -10,7 +10,7 @@ page {
     }
   }
   .address-wrap {
-    padding: 20rpx 10rpx;
+    padding: 20rpx;
     display: flex;
     justify-content: space-between;
     .user-info {
@@ -36,10 +36,9 @@ view.cart {
   }
 
   view.cart-content {
-    border: 1px solid red;
     view.goods-item {
       padding: 10rpx;
-      border-bottom: 1px solid #ccc;
+      border-bottom: 0.5px solid #ccc;
       display: flex;
       view.goods-checkbox {
         flex: 1;
@@ -73,7 +72,7 @@ view.cart {
           overflow: hidden;
           -webkit-box-orient: vertical;
           -webkit-line-clamp: 2;
-          color: #666;
+          color: #333;
         }
 
         view.goods-price-wrap {
@@ -116,11 +115,13 @@ view.bottom-tools {
   bottom: 0;
   left: 0;
   height: 90rpx;
-  border-top: 0.5px solid #aaa;
+  border-top: 0.5px solid #ddd;
   width: 100%;
   display: flex;
   background-color: white;
   view.allcheck-wrap {
+    // border: 1px solid green;
+
     flex: 2;
     display: flex;
     justify-content: center;
@@ -132,17 +133,31 @@ view.bottom-tools {
   }
 
   view.total-price-wrap {
+    padding-right: 16rpx;
+    text-align: right;
+    // border: 1px solid green;
     flex: 4;
     view.total-price {
       text.total-price-text {
+        color: var(--themeColor);
+        font-size: 32rpx;
+        font-weight: 600;
       }
     }
 
-    view {
+    view.subtitle {
+      color: #999;
     }
   }
 
   view.order-pay-wrap {
-    flex: 3;
+    // border: 1px solid green;
+    background: var(--themeColor);
+    font-size: 32rpx;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 2;
   }
 }

@@ -1,5 +1,4 @@
 // 改写原生的wx.request为promise
-// 参数传入， 然后解构
 
 let ajaxNum = 0
 
