@@ -3,6 +3,7 @@ import {
   openSetting,
   chooseAddress,
   showModal,
+  showToast,
 } from "../../utils/asyncWX.js";
 Page({
   data: {
@@ -12,6 +13,29 @@ Page({
     allChecked: false,
     totalPrice: 0,
     totalNum: 0,
+  },
+  async onSettlement() {
+    if (this.data.totalNum === 0) {
+      await showToast({
+        title: "未选择商品",
+        mask: true,
+        icon: "none",
+      });
+      return;
+    }
+    const { address } = this.data;
+    if (!address.userName) {
+      await showToast({
+        title: "未填写收货地址",
+        mask: true,
+        icon: "none",
+      });
+      return;
+    }
+
+    wx.navigateTo({
+      url: "/pages/pay/index",
+    });
   },
   async editNum(e) {
     let { id, step } = e.currentTarget.dataset;

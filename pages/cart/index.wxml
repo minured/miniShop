@@ -20,13 +20,15 @@
                         <checkbox checked="{{item.checked}}" />
                     </checkbox-group>
                 </view>
-                <navigator class="goods-img">
+                <navigator class="goods-img" url="/pages/goods_detail/index?goods_id={{item.goodsDetail.goods_id}}">
                     <image mode="widthFix" src="{{item.goodsDetail.pics[0].pics_sma || 'http://image3.suning.cn/uimg/b2c/newcatentries/0070082592-000000000602606780_2_400x400.jpg'}}" />
                 </navigator>
                 <view class="goods-detail">
-                    <view class="goods-name">{{item.goodsDetail.goods_name}}</view>
+                    <navigator url="/pages/goods_detail/index?goods_id={{item.goodsDetail.goods_id}}">
+                        <view class="goods-name">{{item.goodsDetail.goods_name}}</view>
+                    </navigator>
                     <view class="goods-price-wrap">
-                        <view class="goods-price">{{item.goodsDetail.goods_price}}</view>
+                        <view class="goods-price">￥{{item.goodsDetail.goods_price}}</view>
                         <view class="goods-num-tool">
                             <view class="num-edit" bindtap="editNum" data-id="{{item.goodsDetail.goods_id}}" data-step="{{1}}">
                                 +
@@ -43,7 +45,7 @@
         <block wx:else>
             <view class="cart-empty-tips">
                 购物车空空如也
-                <image src="http://www.s3tu.com/images/2020/09/28/cart-empty60924.jpg" />
+                <image src="http://www.s3tu.com/images/2020/09/28/cart-empty60924.jpg" mode="widthFix" />
             </view>
         </block>
     </view>
@@ -61,5 +63,5 @@
         </view>
         <view class="subtitle">包含运费</view>
     </view>
-    <view class="order-pay-wrap">结算({{totalNum}})</view>
+    <view class="order-pay-wrap" bindtap="onSettlement">结算({{totalNum}})</view>
 </view>

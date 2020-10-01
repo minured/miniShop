@@ -1,1 +1,105 @@
-/* pages/pay/index.wxss */
+page {
+  padding-bottom: 90rpx;
+}
+.address {
+  border-bottom: 0.5px solid #ccc;
+}
+.address .address-wrap {
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+.address .address-wrap .user-info .user-name {
+  font-size: 36rpx;
+}
+view.cart view.cart-content view.goods-item {
+  padding: 10rpx;
+  border-bottom: 0.5px solid #ccc;
+  display: flex;
+}
+view.cart view.cart-content view.goods-item view.goods-img {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+view.cart view.cart-content view.goods-item view.goods-img image {
+  width: 80%;
+}
+view.cart view.cart-content view.goods-item view.goods-detail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  flex: 5;
+}
+view.cart view.cart-content view.goods-item view.goods-detail view.goods-name {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  color: #333;
+}
+view.cart view.cart-content view.goods-item view.goods-detail view.goods-price-wrap {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+view.cart view.cart-content view.goods-item view.goods-detail view.goods-price-wrap view.goods-price {
+  color: var(--themeColor);
+  font-size: 34rpx;
+}
+view.cart view.cart-content view.goods-item view.goods-detail view.goods-price-wrap view.goods-num-tool {
+  display: flex;
+}
+view.cart view.cart-content view.goods-item view.goods-detail view.goods-price-wrap view.goods-num-tool view.num-text {
+  width: 55rpx;
+  height: 55rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+view.bottom-tools {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 90rpx;
+  border-top: 0.5px solid #ddd;
+  width: 100%;
+  display: flex;
+  background-color: white;
+}
+view.bottom-tools view.total-price-wrap {
+  padding-right: 16rpx;
+  text-align: right;
+  flex: 4;
+}
+view.bottom-tools view.total-price-wrap view.total-price text.total-price-text {
+  color: var(--themeColor);
+  font-size: 32rpx;
+  font-weight: 600;
+}
+view.bottom-tools view.total-price-wrap view.subtitle {
+  color: #999;
+}
+view.bottom-tools view.order-pay-wrap {
+  background: var(--themeColor);
+  font-size: 32rpx;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 2;
+}
+.cart-empty-tips {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 40rpx;
+  font-size: 36rpx;
+}
+.cart-empty-tips image {
+  margin-top: 20rpx;
+  width: 50%;
+}

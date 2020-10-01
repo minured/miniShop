@@ -1,66 +1,43 @@
-// pages/pay/index.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    address: null,
+    cart: [],
+    totalPrice: 0,
+  },
+  async onSettlement() {
+    console.log("支付");
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+  // allChecked, totalPrice, totalNum 更新
+  updateCartStatus(cart) {
+    let totalPrice = 0;
+    let totalNum = 0;
+    let allChecked = true;
 
+    cart.forEach((item) => {
+      if (item.checked) {
+        totalPrice += item.goodsDetail.goods_price * item.num;
+        totalNum += item.num;
+      } else {
+        allChecked = false;
+      }
+    });
+
+    // cart可能为空
+    allChecked = cart.length === 0 ? false : allChecked;
+    this.setData({
+      totalNum,
+      totalPrice,
+      cart,
+      allChecked,
+    });
+    wx.setStorageSync("cart", cart);
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onShow() {
+    let address = wx.getStorageSync("address");
+    let cart = wx.getStorageSync("cart") || [];
+    this.updateCartStatus(cart);
+    this.setData({ address });
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+});

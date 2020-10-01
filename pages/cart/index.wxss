@@ -131,5 +131,5 @@ view.bottom-tools view.order-pay-wrap {
 }
 .cart-empty-tips image {
   margin-top: 20rpx;
-  width: 60%;
+  width: 50%;
 }

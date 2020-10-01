@@ -1,14 +1,8 @@
 page {
   padding-bottom: 90rpx;
 }
-// 地址
 .address {
-  .address-btn {
-    padding: 20rpx;
-    button {
-      width: 60%;
-    }
-  }
+  border-bottom: 0.5px solid #ccc;
   .address-wrap {
     padding: 20rpx;
     display: flex;
@@ -27,31 +21,13 @@ page {
 
 // 购物车
 view.cart {
-  view.title {
-    padding: 20rpx;
-    font-size: 36rpx;
-    color: var(--themeColor);
-    border-top: 1px solid var(--themeColor);
-    border-bottom: 1px solid var(--themeColor);
-  }
-
   view.cart-content {
     view.goods-item {
       padding: 10rpx;
       border-bottom: 0.5px solid #ccc;
       display: flex;
-      view.goods-checkbox {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        checkbox-group {
-          checkbox {
-          }
-        }
-      }
 
-      navigator.goods-img {
+      view.goods-img {
         flex: 3;
         display: flex;
         justify-content: center;
@@ -86,15 +62,6 @@ view.cart {
 
           view.goods-num-tool {
             display: flex;
-            view.num-edit {
-              width: 55rpx;
-              height: 55rpx;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              border: 1px solid #ddd;
-            }
-
             view.num-text {
               width: 55rpx;
               height: 55rpx;
@@ -119,23 +86,10 @@ view.bottom-tools {
   width: 100%;
   display: flex;
   background-color: white;
-  view.allcheck-wrap {
-    // border: 1px solid green;
-
-    flex: 2;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    checkbox-group {
-      checkbox {
-      }
-    }
-  }
 
   view.total-price-wrap {
     padding-right: 16rpx;
     text-align: right;
-    // border: 1px solid green;
     flex: 4;
     view.total-price {
       text.total-price-text {
